@@ -1,0 +1,19 @@
+name: Test Grammar Check
+
+on:
+  push:
+    paths:
+      - '**.md'
+  workflow_dispatch:
+
+jobs:
+  check-markdown:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Check Markdown Grammar
+        uses: your-username/your-repo-name@main
+        with:
+          do-api-token: ${{ secrets.DO_API_TOKEN }}
+          do-agent-base-url: ${{ secrets.DO_AGENT_BASE_URL }}
